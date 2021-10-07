@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "05-jumper",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-05-jumper",
+            "program": "${workspaceFolder}/05-jumper/bin/Debug/net5.0/05-jumper.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/05-jumper",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "06-mastermind",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-06-mastermind",
+            "program": "${workspaceFolder}/06-mastermind/bin/Debug/net5.0/06-mastermind.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/06-mastermind",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ]
+}
