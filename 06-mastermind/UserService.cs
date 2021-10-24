@@ -21,6 +21,7 @@ namespace _06_mastermind
             return numericChoice;
         }
 
+
        
         public string GetStringInput(string promptText)
         {

@@ -5,8 +5,10 @@ namespace _06_mastermind
 {
     class Board
     {
-        private Guess _guess = new Guess();
-        private Compare _compare = new Compare();
+        Compare _compare = new Compare();
+
+        Director _director = new Director();
+        UserService _user = new UserService();
         List<string> _info = new List<string>();
         int _turn = 0;
         public Board()
@@ -24,19 +26,15 @@ namespace _06_mastermind
 
         public bool isCorrect()
         {
-            bool correctnumber = false;
-            int [] guesses = _guess.getGuess();
-            if (_turn == 0)
-            {
-                _compare.correctNumber(guesses[0]);
-                _turn = 1;
-            }
-            else
-            {
-                _compare.correctNumber(guesses[1]);
-                _turn = 0;
-            }
+          bool correctnumber = false;
+          int answer = _compare.getNumber();
+          int guess = _director.GetInputs();
 
+          if(answer == guess)
+          {
+            correctnumber = true;
+            
+          }
             return correctnumber;
         }
 

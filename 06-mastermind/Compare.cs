@@ -4,12 +4,13 @@ namespace _06_mastermind{
 
     class Compare
     {
+        
         private int _number;
 
         public int generateNumber()
         {
             Random randomgenerator = new Random();
-            _number = randomgenerator.Next(1000,10000);
+            _number = 1234;
             return _number;
         }
 
