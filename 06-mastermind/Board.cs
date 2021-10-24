@@ -9,26 +9,20 @@ namespace _06_mastermind
 
         Director _director = new Director();
         UserService _user = new UserService();
-        List<string> _info = new List<string>();
-        int _turn = 0;
+
+        Player _player = new Player();
+             
         public Board()
         {
 
         }
 
-        // --------------------
-        // Player Matt: 1111, xooo
-        // Player John: ----, ****
-        // --------------------
-        // John's turn:
-        // What is your guess? 4356
-        // 
-
+        
         public bool isCorrect()
         {
           bool correctnumber = false;
           int answer = _compare.getNumber();
-          int guess = _director.GetInputs();
+          int guess = _player.getGuess();
 
           if(answer == guess)
           {
@@ -41,6 +35,7 @@ namespace _06_mastermind
         public override String ToString()
         {
             string text = $"\n--------------------\n";
+                    text += $"Player";
 
             return text;
             
