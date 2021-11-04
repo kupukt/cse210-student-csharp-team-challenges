@@ -6,7 +6,7 @@ namespace _06_mastermind
     class Player
     {
         private string _name;
-        public int guess;
+        public int _guess;
 
         
         public Player(string name)
@@ -21,11 +21,14 @@ namespace _06_mastermind
 
         public int getGuess()
         {
-            
-            Console.WriteLine("What is your guess?");
-            string input = Console.ReadLine();
-            int guess = int.Parse(input);
-            return guess;
+           
+            return _guess;
         }
+
+        public void setGuess(int guess)
+        {
+            _guess = guess;
+        }
+          
     }
 }

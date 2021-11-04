@@ -9,7 +9,6 @@ namespace _06_mastermind
          private Roster _roster = new Roster();
         private Board _board = new Board();
 
-        private Player _player = new Player();
         private bool _keepPlaying = true;
         public void StartGame()
         {
@@ -40,9 +39,8 @@ namespace _06_mastermind
             _userService.DisplayText(board);
 
             Player currentPlayer = _roster.GetCurrentPlayer();
-            _userService.DisplayText($"{currentPlayer.GetName()}'s turn:");
-
-            _player.getGuess();
+           int guess = _userService.GetNumberInput($"{currentPlayer.GetName()}'s turn");
+           currentPlayer.setGuess(guess);
             
         }
 
@@ -53,7 +51,7 @@ namespace _06_mastermind
 
         private void DoOutputs()
         {
-            if (_board.isCorrect())
+            if (_board.isCorrect() == true)
             {
                 Player winningPlayer = _roster.GetCurrentPlayer();
                 string name = winningPlayer.GetName();
