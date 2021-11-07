@@ -8,6 +8,7 @@ namespace _07_speed
     class ScoreBoard : Actor
     {
         private int _points = 0;
+        private int _countPoints;
 
         public ScoreBoard()
         {
@@ -37,6 +38,11 @@ namespace _07_speed
         {
             _text = $"Score: {_points}";
         }
+
+        //public int getPoints()
+        //{
+            //_points = 
+        //}
     }
 
 }

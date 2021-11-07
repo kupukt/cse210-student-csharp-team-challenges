@@ -14,13 +14,18 @@ namespace _07_speed
     public class Director
     {
         private bool _keepPlaying = true;
+        
+        ScoreBoard _scoreBoard = new ScoreBoard();
+        
+        Buffer _buffer = new Buffer();
+        
+        private List<Words> _words = new List<Words>(); 
+        
+        WordBank _wordBank = new WordBank();
 
         OutputService _outputService = new OutputService();
+        
         InputService _inputService = new InputService();
-        ScoreBoard _scoreBoard = new ScoreBoard();
-        Buffer _buffer = new Buffer();
-        private List<Word> _words = new List<Word>(); 
-        WordBank _wordBank = new WordBank();
         
 
         /// <summary>
@@ -51,10 +56,10 @@ namespace _07_speed
         private void PrepareGame()
         {
             _outputService.OpenWindow(Constants.MAX_X, Constants.MAX_Y, "Speed Game", Constants.FRAME_RATE);
-            for (int numWords = 0; numWords < 5; numWords++)
+            for (int numWords = 0; numWords < 11; numWords++)
             {
-                Word w = new Word();
-                _words.Add(w);
+                Words newWords = new Words();
+                _words.Add(newWords);
             }
             
         }
@@ -65,8 +70,6 @@ namespace _07_speed
         private void GetInputs()
         {
             string letter = _inputService.GetLetter();
-
-            if (letter is "")
             {
                 if (letter == "\n")
                 {
@@ -84,7 +87,7 @@ namespace _07_speed
         /// </summary>
         private void DoUpdates()
         {
-            foreach (Word word in _words)
+            foreach (Words word in _words)
             {
                 word.MoveNext();
             }
@@ -100,7 +103,7 @@ namespace _07_speed
             _outputService.DrawActor(_scoreBoard);
             _outputService.DrawActor(_buffer);
 
-            foreach (Word word in _words)
+            foreach (Words word in _words)
             {
                 _outputService.DrawActor(word);
             }
@@ -115,26 +118,26 @@ namespace _07_speed
         // /// <param name="first"></param>
         // /// <param name="second"></param>
         // /// <returns></returns>
-        // public bool IsCollision(Actor first, Actor second)
-        // {
-        //     int x1 = first.GetX();
-        //     int y1 = first.GetY();
-        //     int width1 = first.GetWidth();
-        //     int height1 = first.GetHeight();
+        public bool IsCollision(Actor first, Actor second)
+         {
+             int x1 = first.GetX();
+             int y1 = first.GetY();
+             int width1 = first.GetWidth();
+             int height1 = first.GetHeight();
 
-        //     Raylib_cs.Rectangle rectangle1
-        //         = new Raylib_cs.Rectangle(x1, y1, width1, height1);
+             Raylib_cs.Rectangle rectangle1
+                 = new Raylib_cs.Rectangle(x1, y1, width1, height1);
 
-        //     int x2 = second.GetX();
-        //     int y2 = second.GetY();
-        //     int width2 = second.GetWidth();
-        //     int height2 = second.GetHeight();
+             int x2 = second.GetX();
+             int y2 = second.GetY();
+             int width2 = second.GetWidth();
+             int height2 = second.GetHeight();
 
-        //     Raylib_cs.Rectangle rectangle2
-        //         = new Raylib_cs.Rectangle(x2, y2, width2, height2);
+             Raylib_cs.Rectangle rectangle2
+                 = new Raylib_cs.Rectangle(x2, y2, width2, height2);
 
-        //     return Raylib.CheckCollisionRecs(rectangle1, rectangle2);
-        // }
+             return Raylib.CheckCollisionRecs(rectangle1, rectangle2);
+         }
 
 
     }

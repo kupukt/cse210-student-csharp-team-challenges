@@ -7,15 +7,13 @@ namespace _07_speed
     /// <summary>
     /// Base class for all actors in the game.
     /// </summary>
-    public class Word : Actor
+    public class Words : Actor
     {   
         // private List<string> _words = new List<string>();
         Random randomGenerator = new Random();
         WordBank _wordBank = new WordBank();
 
-        string newWord;
-
-        public Word()
+        public Words()
         {
             PrepareWord();
         }
@@ -24,8 +22,8 @@ namespace _07_speed
         {
             _text = _wordBank.generateWord();
 
-            int x = Constants.MAX_X - 20;
-            int y = randomGenerator.Next(10, Constants.MAX_Y - 25);
+            int x = Constants.MAX_X - 25;
+            int y = randomGenerator.Next(20, Constants.MAX_Y - 30);
 
             int dx = randomGenerator.Next(1,4);
             int dy = 0;
